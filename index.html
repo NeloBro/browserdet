@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Browser</title>
+	<script type="text/javascript" src="https://raw.githack.com/darcyclarke/Detect.js/master/detect.js"></script>
+</head>
+<body>
+	<p id="anser"></p>
+	Введите X <input id="xer"><button onclick="work()">OK</button>
+	<p id="anser2"></p>
+<script type="text/javascript">
+	var user = detect.parse(navigator.userAgent);
+	var anser = document.getElementById("anser");
+	var browser = user.browser.family
+	switch(browser) {
+		case "Chrome":
+			anser.innerHTML = "Вы используете Chrome, Ваше уравнение - 2x+3";
+			break;
+		case "Firefox":
+			anser.innerHTML = "Вы используете Firefox, Ваше уравнение - 3x-2";
+			break;
+		case "Opera":
+			anser.innerHTML = "Вы используете Opera, Ваше уравнение - 5x*2";
+			break;
+	}
+	function work() {
+		var xer = document.getElementById("xer").value;
+		var primer = 0;
+		switch(browser) {
+		case "Chrome":
+			primer = 2*xer+3;
+			anser2.innerHTML = "Ответ: "+primer;
+			break;
+		case "Firefox":
+			primer = 3*xer-2;
+			anser2.innerHTML = "Ответ: "+primer;
+			break;
+		case "Opera":
+			primer = 5*xer*2;
+			anser2.innerHTML = "Ответ: "+primer;
+			break;
+	}
+	}
+</script>
+</body>
+</html>
